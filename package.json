@@ -47,10 +47,12 @@
     "jspdf": "^4.2.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "browser-sync": "^3.0.2",
     "chai": "^4.5.0",
     "cypress": "^15.18.0",
     "del": "^3.0.0",
+    "globals": "^17.7.0",
     "gulp": "^5.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-csslint": "^1.0.1",

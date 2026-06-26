@@ -79,8 +79,9 @@ gulp.task('cleanupJS', function() {
 
 gulp.task('eslint', function () {
   return gulp.src(paths.srcJS)
+    .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failOnError());
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('js', gulp.series('cleanupJS', 'eslint', 'test', function () {

@@ -55,7 +55,6 @@
   OrgChart.prototype = {
     //
     init: function (opts) {
-      var that = this;
       this.options = $.extend({}, this.defaultOptions, this.opts, opts);
       // build the org-chart
       var $chartContainer = this.$chartContainer;
@@ -606,7 +605,6 @@
     },
     // show the children nodes of the specified node
     showChildren: function ($node) {
-      var that = this;
       $node.closest('.hierarchy').removeClass('isChildrenCollapsed');
       var $levels = $node.siblings('.nodes');
       var isVerticalDesc = $levels.is('.vertical');
@@ -647,7 +645,6 @@
     },
     // hide the sibling nodes of the specified node
     hideSiblings: function ($node, direction) {
-      var that = this;
       var $nodeContainer = $node.closest('.hierarchy').addClass('isSiblingsCollapsed');
       if ($nodeContainer.siblings().find('.spinner').length) {
         $node.closest('.orgchart').data('inAjax', false);
@@ -687,7 +684,6 @@
     },
     // show the sibling nodes of the specified node
     showSiblings: function ($node, direction) {
-      var that = this;
       // firstly, show the sibling nodes
       var $siblings = $();
       var $nodeContainer = $node.closest('.hierarchy');
@@ -811,7 +807,6 @@
         }
       } else {
         var $topEdge = $node.children('.topEdge');
-        var $rightEdge = $node.children('.rightEdge');
         var $bottomEdge = $node.children('.bottomEdge');
         var $leftEdge = $node.children('.leftEdge');
         if (event.type === 'mouseenter') {
@@ -863,7 +858,6 @@
     },
     // actions on clinking top edge of a node
     topEdgeClickHandler: function (event) {
-      var that = this;
       var $topEdge = $(event.target);
       var $node = $(event.delegateTarget);
       var parentState = this.getNodeState($node, 'parent');
@@ -883,7 +877,6 @@
     },
     // actions on clinking bottom edge of a node
     bottomEdgeClickHandler: function (event) {
-      var $bottomEdge = $(event.target);
       var $node = $(event.delegateTarget);
       var childrenState = this.getNodeState($node, 'children');
       if (childrenState.exist) {
@@ -1339,7 +1332,6 @@
     },
     // create node
     createNode: function (data) {
-      var that = this;
       var opts = this.options;
       var level = data.level;
       if (data.children && data[opts.nodeId]) {
@@ -1468,7 +1460,6 @@
     // recursively build the tree
     buildHierarchy: function ($hierarchy, data) {
       var that = this;
-      var opts = this.options;
       var level = 0;
       var $nodeDiv;
       if (data.level || data[0]?.level) {
